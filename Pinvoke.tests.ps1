@@ -10,7 +10,8 @@ Describe "New-PinvokeCommand" {
 	Context "Create a command for Beep" {
 		It "Returns true" {
 			New-PinvokeCommand -Module Kernel32 -Function 'Beep' -CommandName 'Invoke-Beep'
-			Invoke-Beep -dwFreq 1 -dwDuration 1 | Should be $true
+			$ShouldBe = $ENV:APPVEYOR -ne 'true'
+			Invoke-Beep -dwFreq 1 -dwDuration 1 | Should be $ShouldBe
 		}
 	}
 }

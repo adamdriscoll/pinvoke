@@ -28,9 +28,13 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="Pinvoke.psd1" />
-    <Compile Include="Pinvoke.ps1" />
+    <Compile Include="appveyor.yml" />
+    <Compile Include="CreateModuleManifest.ps1" />
+    <Compile Include="InvokeTests.ps1" />
+    <Compile Include="Pinvoke.psm1" />
     <Compile Include="Pinvoke.tests.ps1" />
+    <Compile Include="PublishModule.ps1" />
+    <Compile Include="README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
