@@ -1,0 +1,12 @@
+name: Publish
+on: [workflow_dispatch]
+
+jobs:
+    build:
+      name: Publish
+      runs-on: windows-latest
+      steps:
+        - uses: actions/checkout@v1
+        - name: Publish
+          run: .\github.ps1
+          shell: pwsh
