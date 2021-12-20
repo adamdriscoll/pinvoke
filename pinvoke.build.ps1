@@ -49,7 +49,9 @@ task Build {
 }
 
 task Publish {
-    Publish-Module -Path $OutputPath -NuGetApiKey $Env:APIKEY
+    Rename-Item -Path $OutputPath -NewName "PInvoke"
+    $ModulePath = "$PSScriptRoot\bin\Release\netstandard2.0\PInvoke"
+    Publish-Module -Path $ModulePath -NuGetApiKey $Env:APIKEY
 }
 
 task . Build
