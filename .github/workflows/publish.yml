@@ -8,5 +8,7 @@ jobs:
       steps:
         - uses: actions/checkout@v1
         - name: Publish
+          env:
+            APIKEY: ${{ secrets.APIKEY }}
           run: .\github.ps1
           shell: pwsh
