@@ -1,7 +1,15 @@
-PowerShell module accessing the PInvoke.NET APIs and generating commands from signatures.
+# P\Invoke 
 
-[![Build status](https://ci.appveyor.com/api/projects/status/6k6hr6s0awfak2td?svg=true)](https://ci.appveyor.com/project/adamdriscoll/pinvoke)
+PowerShell library that includes all the P\Invoke assemblies from [Microsoft](https://github.com/dotnet/pinvoke).
 
-`PS> Install-Module -Name Pinvoke`
+# Install
 
-http://pinvoke.net
+```powershell
+Install-Module Pinvoke
+```
+
+# Use 
+
+```powershell
+[PInvoke.Kernel32Dll]::LoadLibrary('myDll.dll')
+```
