@@ -1,2 +1,2 @@
 Install-Module InvokeBuild -Force -Scope CurrentUser
-Invoke-Build
+Invoke-Build -Task @('Build', 'Publish')
