@@ -17,3 +17,15 @@ Call native functions directly in PowerShell.
 ```powershell
 [PInvoke.Kernel32Dll]::LoadLibrary('myDll.dll')
 ```
+
+## Cmdlets
+
+- Get-Window
+- Remove-Window
+
+### Find a Window and Close it
+
+```powershell
+$Process = Start-Process Notepad -PassThru
+Get-Window -Hwnd $Process.MainWindowHandle | Remove-Window
+```

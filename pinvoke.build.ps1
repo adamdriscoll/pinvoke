@@ -1,4 +1,4 @@
-$Version = "2.0.0"
+$Version = "2.1.0"
 $OutputPath = "$PSScriptRoot\bin\Release\netstandard2.0\publish"
 
 task Build {
@@ -35,6 +35,8 @@ task Build {
         'WinUsb',
         'Wtsapi32'
     )
+
+    Copy-Item "$PSScriptRoot\pinvoke.psm1" -Destination "$OutputPath"
     
     New-ModuleManifest -Path (Join-Path $OutputPath "pinvoke.psd1") `
         -ModuleVersion $Version `
@@ -44,8 +46,9 @@ task Build {
         -LicenseUri 'https://github.com/adamdriscoll/pinvoke/blob/master/LICENSE' `
         -CompanyName 'Ironman Software, LLC' `
         -Description 'P\Invoke library for PowerShell' `
-        -FunctionsToExport @() `
+        -FunctionsToExport @('Get-Window', 'Remove-Window') `
         -CmdletsToExport @() `
+        -RootModule "pinvoke.psm1"
 }
 
 task Publish {
